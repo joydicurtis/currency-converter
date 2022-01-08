@@ -1,0 +1,19 @@
+@import 'vendor/vendor';
+@import 'setup/setup';
+
+@import 'global';
+@import 'partials/layout';
+@import 'partials/forms';
+@import 'partials/chart';
+
+@import 'partials/footer';
+@import 'partials/header';
+@import 'partials/nav';
+@import 'partials/table';
+
+select {
+    max-width: 100px;
+    @include breakpoint(medium) {
+        max-width: none;
+    }
+}

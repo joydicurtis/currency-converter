@@ -1,0 +1,51 @@
+.tab {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    white-space: nowrap;
+    overflow-x: auto;
+    margin-left: -5px;
+    margin-right: -5px;
+    margin-bottom: 16px;
+    @include breakpoint(x-large) {
+        justify-content: flex-end;
+    }
+}
+
+.tab-item {
+    padding: 4px 12px;
+    background: none;
+    border-radius: 14px;
+    margin: 0;
+    font-size: 12px;
+    font-weight: $fontWeight-semibold;
+    @include breakpoint(medium) {
+        font-size: $fontSize-base;
+    }
+    &.tab-item-active {
+        background: $color-primary;
+        transition: all .3s ease-in-out;
+        cursor: pointer;
+        a {
+            color: $white;
+        }
+    }
+}
+
+.chart {
+    margin-bottom: 24px;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.chart-item {
+    height: 370px; 
+    width: 736px;
+    @include breakpoint(x-large) {
+        width: 100%;
+    }
+}

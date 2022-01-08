@@ -1,0 +1,146 @@
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+select,
+textarea {
+    width: 100%;
+    padding: 6px 10px 7px;
+    font-family: $font-base;
+    font-size: $fontSize-base;
+    line-height: $lineHeight-base;
+    background: lighten($color-secondary, 20%);
+    border: solid 2px $color-secondary;
+    border-radius: 4px;
+    -webkit-appearance: none;
+    &:focus,
+    &:focus-visible {
+        transition: all .3s ease-in-out;
+        border: solid 2px $color-primary;
+        outline: $color-primary;
+    }
+    &::placeholder {
+
+    }
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        -moz-appearance: textfield;
+    }
+}
+
+
+textarea {
+    resize: vertical;
+    height: 150px;
+}
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.btn {
+    display: inline-block;
+    margin: 12px 0;
+    padding: 4px;
+    text-align: center;
+    text-decoration: none;
+    font-family: $font-base;
+    font-size: $fontSize-base;
+    line-height: $lineHeight-base;
+    border-radius: 4px;
+    border: 1px solid $black;
+    color: $black;
+    transition: all .3s ease-out;
+    -webkit-appearance: none;
+    appearance: none;
+    &:hover,
+    &:active {
+        cursor: pointer;
+    }
+}
+
+label {
+    display: block;
+    font-weight: 500;
+    font-size: $fontSize-small;
+}
+
+.converter-form {
+    margin-bottom: 40px;
+}
+
+.converter-form-item {
+    position: relative;
+    margin-bottom: 12px;
+    flex: 1 1 auto;
+}
+
+.converter-form-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    >.btn {
+        &.btn-secondary {
+            margin-top: 20px;
+        }
+    }
+}
+
+.converter-form-item-result {
+    font-size: $fontSize-large;
+    font-weight: $fontWeight-semibold;
+    margin-bottom: 24px;
+}
+
+.btn {
+    padding: 6px 16px 7px;
+    &.btn-primary {
+        border: solid 2px $color-primary;
+        background: $color-primary;
+        color: $white;
+
+    }
+    &.btn-secondary {
+        border: solid 2px transparent;
+        background: none;
+        color: $color-primary;
+        background: transparent;
+    }
+    &.btn-full {
+        width: 100%;
+        margin-bottom: 12px;
+    }
+    &.btn-close {
+        position: absolute;
+        right: 0;
+        margin: 0;
+    }
+}
+
+.converter-form-dropdown {
+    position: relative;
+    margin-top: 12px;
+    &:after {
+        position: absolute;
+        right: 15px;
+        display: inline-block;
+        content: '\f0d7';
+        font-family: "Font Awesome 6 Free";
+        font-weight: $fontWeight-bold;
+    }
+    select {
+        padding: 0;
+        background: none;
+        border: none;
+        color: $color-primary;
+        font-weight: $fontWeight-semibold;
+        option {
+            color: $black;
+            &:hover,
+            &:focus {
+                box-shadow: 0 0 10px 100px orange inset;
+            }
+        }
+    }
+}
