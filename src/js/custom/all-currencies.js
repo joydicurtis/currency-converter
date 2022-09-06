@@ -1,8 +1,8 @@
-var allCurrencies = [
+export const allCurrencies = [
     { selected: false, value: 'USD', label: 'USD - United States Dollar', country: 'United States'},
     { selected: false, value: 'EUR', label: 'EUR - Euro', country: 'European Union'},
     { selected: false, value: 'UAH', label: 'UAH - Ukrainian Hryvnia', country: 'Ukraine'},
-    { selected: false, value: 'RUB', label: 'RUB - Russian Ruble', country: 'Russian Federation'},
+    { selected: false, value: 'RUB', label: 'RUB - Russian Ruble [terrorist state]', country: 'Russian Federation [terrorist state]'},
     { selected: false, value: 'JPY', label: 'JPY - Japanese Yen', country: 'Japan'},
     { selected: false, value: 'CNY', label: 'CNY - Chinese Yuan', country: 'China'},
     { selected: false, value: 'CHF', label: 'CHF - Swiss Franc', country: 'Switzerland'},

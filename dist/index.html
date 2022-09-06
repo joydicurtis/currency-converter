@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en-US">
+    <head lang="en">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes"/>
+        <title></title>
+        <!-- <link rel="shortcut icon" href="favicon.ico"> -->
+        <!-- CSS -->
+        <!-- <link rel="stylesheet" href="css/vendor/font-awesome/css/all.min.css">
+        <link rel="stylesheet" href="css/vendor/font-awesome/css/solid.css">
+        <link rel="stylesheet" href="css/application.css"> -->
+    <script defer src="bundle.js"></script><link href="style.min.css" rel="stylesheet"></head>
+    <body>
+        <div class="siteContent">
+            <header class="header">
+                <nav class="nav">
+                    <div class="nav-logo">
+                        <img src="./images/logo.svg" alt="logo">
+                    </div>
+                </nav>
+            </header>
+            <main>
+                <div class="content">
+                    <div class="content-item">
+                        <div class="converter-form" id="js-converter-form">
+                            <div class="converter-form-row">
+                                <div class="converter-form-item">
+                                    <label>From Currency</label>
+                                    <input type="number" id="js-user-sum" value="1">
+                                    <button onClick="clearField()" class="btn btn-secondary btn-close"><i class="fa-solid fa-xmark"></i></button>
+                                    <div class="converter-form-dropdown">
+                                        <select id="js-source-select"></select>
+                                    </div>
+                                </div>
+                                <button onClick="reverseCur()" class="btn btn-secondary"><i class="fas fa-exchange-alt"></i></button>
+                                <div class="converter-form-item">
+                                    <label>To Currency</label>
+                                    <input type="number" id="js-target-sum">
+                                    <button onClick="clearField()" class="btn btn-secondary btn-close"><i class="fa-solid fa-xmark"></i></button>
+                                    <div class="converter-form-dropdown">
+                                        <select id="js-target-select"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-chart">
+                            <ul class="tab">
+                                <li class="tab-item tab-item-active">
+                                    <a href="#">1 Week</a>
+                                </li>
+                                <li class="tab-item">
+                                    <a href="#">1 Month</a>
+                                </li>
+                                <li class="tab-item">
+                                    <a href="#">3 Months</a>
+                                </li>
+                                <li class="tab-item">
+                                    <a href="#">6 Months</a>
+                                </li>
+                                <li class="tab-item">
+                                    <a href="#">1 Year</a>
+                                </li>
+                                <li class="tab-item">
+                                    <a href="#">3 Years</a>
+                                </li>
+                            </ul>
+                            <div class="chart">
+                                <div id="chartContainer" class="chart-item"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="currency-table">
+                        <table id="js-currency-table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Currency
+                                    </th>
+                                    <th>Amount</th>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <select id="js-currency-table-select"></select>
+                                    </th>
+                                    <th>1</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <footer class="siteFooter">
+            All Rights Reserved©2021
+        </footer>
+        <!-- <script src="js/vendor/jquery-3.1.0.min.js"></script>
+        <script src="js/vendor.min.js"></script>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        <script src="js/custom/all-currencies.js"></script>
+        <script src="js/custom/app.js"></script> -->
+    </body>
+</html>

@@ -1,25 +1,47 @@
 {
-  "name": "my-project-name",
-  "version": "0.1.0",
+  "name": "currency-converter",
+  "version": "1.1.0",
+  "description": "Simple currency converter application ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "dev": "webpack --mode development",
+    "start": "webpack-dev-server --mode development --open",
+    "watch": "webpack --mode development --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joydicurtis/currency-converter.git"
+  },
+  "keywords": [
+    "js",
+    "html",
+    "css",
+    "api"
+  ],
+  "author": "Yevheniia Nezhalska",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joydicurtis/currency-converter/issues"
+  },
+  "homepage": "https://github.com/joydicurtis/currency-converter#readme",
   "devDependencies": {
-    "autoprefixer": "^10.4.0",
-    "cross-env": "^7.0.3",
-    "cssnano": "^5.0.11",
-    "grunt": "^1.4.1",
-    "grunt-contrib-jshint": "^0.10.0",
-    "grunt-contrib-nodeunit": "~0.4.1",
-    "grunt-contrib-uglify": "~0.5.0",
-    "grunt-postcss": "^0.9.0",
-    "pixrem": "^5.0.0"
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
   },
   "dependencies": {
-    "browserslist": "^4.18.1",
-    "grunt-contrib-sass": "^2.0.0",
-    "grunt-contrib-watch": "^1.1.0",
-    "grunt-sass": "^3.1.0"
-  },
-  "browserslist": [
-    "last 2 versions",
-    "> 0.5%"
-  ]
+    "@babel/core": "^7.18.13",
+    "@everapi/currencyapi-js": "^1.0.6",
+    "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
+    "css-minimizer-webpack-plugin": "^4.0.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "i": "^0.3.7",
+    "mini-css-extract-plugin": "^2.6.1",
+    "npm": "^8.18.0",
+    "sass": "^1.54.5",
+    "sass-loader": "^13.0.2"
+  }
 }
