@@ -9,7 +9,6 @@
 
 #idea
 .idea
-.dist
 
 #Node
 node_modules/*
