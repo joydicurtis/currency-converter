@@ -1,21 +1,25 @@
 'use strict';
 
-import './images/logo.svg';
-import 'material-icons/iconfont/material-icons.css';
 import { allCurrencies } from './js/custom/all-currencies.js';
 import * as CanvasJS from './js/vendor/canvasjs.min.js';
 
+const headerDate = document.getElementById('header-date');
 var tableSelect = document.getElementById('js-currency-table-select');
 var currencyTableBody = document.getElementById('js-currency-table').getElementsByTagName('tbody')[0];
 var sourceSelect = document.getElementById('js-source-select');
 var targetSelect = document.getElementById('js-target-select');
 var userSum = document.getElementById('js-user-sum');
 var userSumOne = document.getElementById('js-target-sum');
-const tabs = document.querySelectorAll('.tab-item');
+const tabs = document.querySelectorAll('.tab__item');
 const btnClose = document.querySelectorAll('.btn-close');
 const btnReverse = document.querySelector('#btn-reverse');
 
 async function app(){
+
+  const date = new Date("Jan 01 2021");
+  const dateOptions = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+  headerDate.innerHTML = date.toLocaleDateString(undefined, dateOptions);
+  console.log(date, headerDate);
   let initialSourceCurrency = 'USD';
   let initialTargetCurrency = 'UAH';
   getSelectOptions(sourceSelect, initialSourceCurrency);
@@ -34,7 +38,6 @@ async function app(){
   formEvents.forEach(event => {
     converterForm.addEventListener(event, async function(event) {
       let value = event.target.value;
-      console.log('event', event);
       switch (event.target.id) {
         case 'js-user-sum':
           field1.getData();
@@ -42,7 +45,6 @@ async function app(){
         case 'js-source-select':
           chart.sourceCurrency = sourceSelect.value;
           chart.targetCurrency = targetSelect.value;
-          console.log('val',chart);
           field1.inputCurVal = value;
           field1.getData();
           break;
@@ -193,6 +195,8 @@ async function setTableData(selectedCur) {
       let tr = document.createElement("tr");
       let td = document.createElement("td");
       let td1 = document.createElement("td");
+      td.classList.add('currency-table__body-cell');
+      td1.classList.add('currency-table__body-cell');
       currencyTableBody.appendChild(tr);
       tr.appendChild(td).innerText = key;
       tr.appendChild(td1).innerText = rates[key];
@@ -203,33 +207,35 @@ async function setTableData(selectedCur) {
 function renderChart(data) {
   let chart = new CanvasJS.Chart("chartContainer", {
     animationEnabled: true,
+    backgroundColor: "transparent",
     axisY: {
         valueFormatString: "#0.00",
         gridColor: "transparent",
         lineColor: "transparent",
         tickColor: "transparent",
-        labelFontColor: "#c4c4c4",
+        labelFontColor: "#1b2727",
         labelFontSize: 10
     },
     axisX:{
       tickColor: "transparent",
       lineColor: "transparent",
-      labelFontColor: "#c4c4c4",
+      labelFontColor: "#1b2727",
       labelFontSize: 10
     },
     toolTip: {
-			fontColor: "#000",
+			fontColor: "#1b2727",
 			Content: "{x} : {y}",
       borderThickness: 0,
 		},
     data: [{
         type: "spline",
-        color: "rgba(128, 185, 108, 1)",
+        color: "#6b8e4e",
         markerSize: 5,
         xValueFormatString: "YYYY-MM-DD",
         yValueFormatString: "00.00",
         dataPoints: data
     }]
+    
   });
 
   chart.render();
@@ -295,14 +301,14 @@ function setToDate(value) {
       startDate = threeYearsAgo.toISOString().split('T')[0];
       break;
   }
-  let list = document.getElementsByClassName('tab-item');
-  let activeItems = document.getElementsByClassName('tab-item-active');
+  let list = document.getElementsByClassName('tab__item');
+  let activeItems = document.getElementsByClassName('tab__item--active');
   for (let i = 0; i< activeItems.length; i++) {
-    activeItems[i].classList.remove('tab-item-active');
+    activeItems[i].classList.remove('tab__item--active');
   }
   for (let i=0; i<list.length; i++) {
     list[i].onclick=function(){
-      list[i].classList.add('tab-item-active');
+      list[i].classList.add('tab__item--active');
     }
   }
 
