@@ -1,16 +1,10 @@
-@import 'setup/setup';
+@import 'setup';
 
-@import 'global';
-@import 'partials/layout';
-@import 'partials/forms';
-@import 'partials/chart';
-
-@import 'partials/footer';
-@import 'partials/table';
-
-select {
-    max-width: 100px;
-    @include breakpoint(medium) {
-        max-width: none;
-    }
-}
+@import 'breakpoint';
+@import 'buttons';
+@import 'chart';
+@import 'converter-form';
+@import 'header';
+@import 'layout';
+@import 'table';
+@import 'tabs';
