@@ -1,7 +1,5 @@
 'use strict';
 
-import './images/logo.svg';
-import 'material-icons/iconfont/material-icons.css';
 import { allCurrencies } from './js/custom/all-currencies.js';
 import * as CanvasJS from './js/vendor/canvasjs.min.js';
 
