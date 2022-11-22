@@ -1,0 +1,27 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+}
+body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    line-height: 1.5rem;
+    background: $background-color;
+    margin: 0;
+}
+
+.container {
+    padding: 0 1rem;
+    @include breakpoint(medium) {
+        display: flex;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    &__column {
+        position: relative;
+    }
+}
