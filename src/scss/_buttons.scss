@@ -12,9 +12,17 @@
     border: 0;
     cursor: pointer;
 
+    &:hover {
+        background: $background-accent-hover;
+    }
+    &:active {
+        background: $background-accent-active;
+    }
+
     &__icon {
         width: 1.5em;
         height: 1.5em;
+        pointer-events: none;
         .button--primary & {
             transform: rotate(90deg);
         }
@@ -23,6 +31,4 @@
     &__text {
         margin-left: 0.25rem;
     }
-
-
 }
