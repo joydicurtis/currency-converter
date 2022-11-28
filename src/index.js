@@ -71,7 +71,12 @@ async function app(){
       chart.fromDate = range.startDate;
       chart.toDate = range.endDate;
       chart.renderChart();
-    })
+      let activeItems = document.getElementsByClassName('tab__item--active');
+      for (let i = 0; i< activeItems.length; i++) {
+        activeItems[i].classList.remove('tab__item--active');
+      }
+      e.target.classList.add('tab__item--active');
+    });
   });
   btnReverse.addEventListener('click', async function(e) {
     field1.inputCurVal = targetSelect.value;
@@ -293,17 +298,6 @@ function setToDate(value) {
       startDate = threeYearsAgo.toISOString().split('T')[0];
       break;
   }
-  let list = document.getElementsByClassName('tab__item');
-  let activeItems = document.getElementsByClassName('tab__item--active');
-  for (let i = 0; i< activeItems.length; i++) {
-    activeItems[i].classList.remove('tab__item--active');
-  }
-  for (let i=0; i<list.length; i++) {
-    list[i].onclick=function(){
-      list[i].classList.add('tab__item--active');
-    }
-  }
-
   const endDate = today.toISOString().split('T')[0];
 
   const dateRange = {'startDate': startDate, 'endDate': endDate}
