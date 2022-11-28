@@ -11,15 +11,14 @@ var targetSelect = document.getElementById('js-target-select');
 var userSum = document.getElementById('js-user-sum');
 var userSumOne = document.getElementById('js-target-sum');
 const tabs = document.querySelectorAll('.tab__item');
-const btnClose = document.querySelectorAll('.btn-close');
+const btnClose = document.querySelectorAll('.converter-form__button');
 const btnReverse = document.querySelector('#btn-reverse');
 
 async function app(){
 
-  const date = new Date("Jan 01 2021");
+  const date = new Date();
   const dateOptions = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
   headerDate.innerHTML = date.toLocaleDateString(undefined, dateOptions);
-  console.log(date, headerDate);
   let initialSourceCurrency = 'USD';
   let initialTargetCurrency = 'UAH';
   getSelectOptions(sourceSelect, initialSourceCurrency);
@@ -29,7 +28,6 @@ async function app(){
   const formEvents = ['change', 'input'];
   let field1 = new UserField(userSum, sourceSelect, userSumOne, targetSelect);
   let field2 = new UserField(userSumOne, targetSelect, userSum, sourceSelect);
-  console.log('FIELD', field2);
   let table = new Table(tableSelect, initialSourceCurrency);
   let chart = new Chart(initialSourceCurrency, initialTargetCurrency);
   chart.renderChart(initialSourceCurrency, initialTargetCurrency);
@@ -54,12 +52,10 @@ async function app(){
         case 'js-target-select':
           chart.sourceCurrency = sourceSelect.value;
           chart.targetCurrency = targetSelect.value;
-          console.log('val', chart);
           field1.outputCurVal = value;
           field1.getData();
           break;
       }
-      console.log('UPDATE', chart);
       chart.renderChart();
     });
    
@@ -72,7 +68,6 @@ async function app(){
     tab.addEventListener('click', function(e) {
       let value = e.target.innerText;
       let range = setToDate(value, sourceSelect.value);
-      console.log('range', range);
       chart.fromDate = range.startDate;
       chart.toDate = range.endDate;
       chart.renderChart();
@@ -85,7 +80,6 @@ async function app(){
     targetSelect.value = field1.outputCurVal;
     field1.inputCurVal = sourceSelect.value;
     field1.outputCurVal = targetSelect.value;
-    console.log('fields', field1, field2);
     field1.getData();
     chart.sourceCurrency = sourceSelect.value;
     chart.targetCurrency = targetSelect.value;
@@ -93,7 +87,6 @@ async function app(){
   });
   btnClose.forEach(btn => {
     btn.addEventListener('click', function(event) {
-      console.log('event', event);
       switch (event.target.id) {
         case 'js-btn-clear-source':
           field1.clearField();
@@ -106,7 +99,7 @@ async function app(){
           field2.getData();
           break;
       }
-    }, true);
+    }, false);
   });
 }
 
@@ -128,7 +121,7 @@ class UserField {
     updateObj(this.inputSum.value, this.inputCurVal)
   };
   clearField = () => {
-    this.sum = 1;
+    this.inputSum.value = 1;
   }
 }
 class Table {
@@ -164,7 +157,6 @@ function getSelectOptions(selectItem, cur) {
 }
 
 async function convertSum(source, target, amount, field) {
-  console.log('datasum', source, target, amount, field);
   const requestURL = 'https://api.exchangerate.host/convert?from=' + source + '&to='+ target + '&amount=' + amount;
   const data = await requestData(requestURL);
   setTimeout(() => {

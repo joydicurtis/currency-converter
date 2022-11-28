@@ -18,7 +18,13 @@
     font-weight: 400;
 }
 
+@function tint($color, $percentage) {
+    @return mix(white, $color, 100% - $percentage);
+} 
+
 $accent: #6b8e4e;
+$accent-hover: #7a9960;
+$accent-active: #89a571;
 $light: #b2c5b2;
 $gray: #d5dddf;
 $font-weight-bold: 800;
@@ -26,10 +32,14 @@ $font-weight-bold: 800;
 
 $background-color: #1b2727;
 $background-accent: $accent;
+$background-accent-hover: $accent-hover;
+$background-accent-active: $accent-active;
 $background-gray: $gray;
 
 $text-white: #fff;
 $text-accent: $accent;
+$text-accent-hover: $accent-hover;
+$text-accent-active: $accent-active;
 $text-light: $light;
 $text-color: #1b2727;
 
