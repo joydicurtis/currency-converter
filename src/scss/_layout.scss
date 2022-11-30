@@ -15,15 +15,25 @@ body {
 }
 
 .container {
-    padding: 0 1rem;
+    padding: 1rem;
+
     @include breakpoint(medium) {
         display: flex;
         gap: 1rem;
-        padding: 1rem;
-        justify-content: center;
     }
-    &__column {
-        position: relative;
+
+    &__column-70 {
+        @include breakpoint(medium) {
+            width: 70%;
+        }
+    }
+
+    &__column-30 {
+        @include breakpoint(medium) {
+            max-height: calc(100vh - 109px);
+            overflow: auto;
+            width: 30%;
+        }
     }
 }
 
