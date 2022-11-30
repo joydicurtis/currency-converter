@@ -17,7 +17,7 @@ const btnReverse = document.querySelector('#btn-reverse');
 async function app(){
 
   const date = new Date();
-  const dateOptions = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+  const dateOptions = { year: 'numeric', month: 'short', day: 'numeric' };
   headerDate.innerHTML = date.toLocaleDateString(undefined, dateOptions);
   let initialSourceCurrency = 'USD';
   let initialTargetCurrency = 'UAH';

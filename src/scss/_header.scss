@@ -4,9 +4,11 @@
     align-items: center;
     padding: 1rem;
     color: #d5dddf;
+
     @include breakpoint(medium) {
         border-bottom: solid 1px #3c5148;
     }
+    
     &__logo {
         @include font-base;
 
@@ -40,5 +42,4 @@
     &__button-text {
         display: none;
     }
-    
 }

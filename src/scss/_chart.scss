@@ -1,6 +1,9 @@
 
 .chart {
     margin-bottom: 1.5rem;
+    @include breakpoint(medium) {
+        margin-bottom: 0;
+    }
 }
 
 .chart-item {
