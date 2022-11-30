@@ -162,10 +162,12 @@ function getSelectOptions(selectItem, cur) {
 }
 
 async function convertSum(source, target, amount, field) {
+  showLoader(true);
   const requestURL = 'https://api.exchangerate.host/convert?from=' + source + '&to='+ target + '&amount=' + amount;
   const data = await requestData(requestURL);
   setTimeout(() => {
     field.value = data.result.toFixed(2).replace(".00","");
+    showLoader(false);
   }, 1000);
 }
 
@@ -183,6 +185,7 @@ function refreshTable(){
 }
 
 async function setTableData(selectedCur) {
+  showLoader(true);
   const requestURL = 'https://api.exchangerate.host/latest?base='+selectedCur;
   let data = await requestData(requestURL);
   if (data) {
@@ -198,6 +201,7 @@ async function setTableData(selectedCur) {
       tr.appendChild(td).innerText = key;
       tr.appendChild(td1).innerText = rates[key];
     }
+    showLoader(false);
   }
 }
 
@@ -303,6 +307,19 @@ function setToDate(value) {
   const dateRange = {'startDate': startDate, 'endDate': endDate}
 
   return dateRange;
+}
+
+function showLoader(loaderStatus) {
+  const body = document.getElementById('js-body');
+  const loader = document.getElementById('js-loader');
+  if (loaderStatus) {
+    body.classList.add('overflow-hidden');
+    loader.classList.remove('lds-dual-ring--hidden');
+  }
+  else {
+    body.classList.remove('overflow-hidden');
+    loader.classList.add('lds-dual-ring--hidden');
+  }
 }
 
 app();
